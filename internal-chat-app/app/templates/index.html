@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal Chat</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="login-view" class="screen centered">
+      <div class="card login-card">
+        <h1>Internal Chat</h1>
+        <p class="muted">Mensajería interna simple para equipos pequeños.</p>
+        <form id="login-form">
+          <label>Usuario</label>
+          <input type="text" id="username" placeholder="admin" required />
+          <label>Contraseña</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+          <button type="submit">Entrar</button>
+        </form>
+        <p id="login-error" class="error"></p>
+      </div>
+    </section>
+
+    <section id="chat-view" class="screen hidden">
+      <aside class="sidebar left">
+        <div class="brand-block">
+          <h2>Internal Chat</h2>
+          <div id="current-user" class="muted"></div>
+        </div>
+
+        <div class="section-header">
+          <span>Canales</span>
+        </div>
+        <div id="channels-list" class="list"></div>
+
+        <form id="create-channel-form" class="inline-form">
+          <input type="text" id="new-channel-name" placeholder="nuevo-canal" maxlength="50" />
+          <button type="submit">Crear</button>
+        </form>
+
+        <div class="actions">
+          <button id="notifications-btn" class="secondary">Activar notificaciones</button>
+          <button id="logout-btn" class="danger">Salir</button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="chat-header">
+          <h3 id="channel-title">#general</h3>
+          <span id="connection-status" class="status online">Conectado</span>
+        </header>
+
+        <div id="messages" class="messages"></div>
+
+        <form id="message-form" class="message-form">
+          <input type="text" id="message-input" placeholder="Escribe un mensaje..." maxlength="2000" autocomplete="off" />
+          <button type="submit">Enviar</button>
+        </form>
+      </main>
+
+      <aside class="sidebar right">
+        <div class="section-header">
+          <span>Usuarios conectados</span>
+        </div>
+        <div id="online-users" class="list"></div>
+      </aside>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
